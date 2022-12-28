@@ -30,7 +30,7 @@ const ELEMENT_DATA: ListaAlumnosModel[] = [
 })
 export class AlumnosComponent implements OnInit {
 
-  displayedColumns: string[] = ['posicion', 'nombre', 'grado', 'edad', 'sexo', 'promedio'];
+  displayedColumns: string[] = ['posicion', 'nombre', 'grado', 'edad', 'sexo', 'promedio', 'acciones'];
   dataSource = ELEMENT_DATA;
 
  
@@ -40,6 +40,10 @@ export class AlumnosComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addNewItem(res:any) {
+    alert(res);
+  }
+  
 
   
 
