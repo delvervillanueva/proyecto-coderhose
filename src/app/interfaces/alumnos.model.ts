@@ -1,6 +1,5 @@
 export interface ListaAlumnosModel {
-    posicion: number;
-    nombre: string;
+    nombres: string;
     grado: string;
     edad: number;
     sexo: string;

@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ListaAlumnosModel } from '../../interfaces/alumnos.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { AlumnosService } from 'src/app/servicios/alumnos.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
-
 
 
 @Component({
@@ -15,13 +12,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class AlumnosComponent implements OnInit {
 
-listAlumnos: ListaAlumnosModel[] = []
-  
-
-  displayedColumns: string[] = ['posicion', 'nombre', 'grado', 'edad', 'sexo', 'promedio', 'acciones'];
+  listAlumnos: ListaAlumnosModel[] = []
+  displayedColumns: string[] = ['nombres', 'grado', 'edad', 'sexo', 'promedio', 'acciones'];
   dataSource : MatTableDataSource<any>;
-
- 
 
   constructor( private _alumnosService: AlumnosService, private _snackBar : MatSnackBar) { }
 
@@ -52,10 +45,5 @@ listAlumnos: ListaAlumnosModel[] = []
 
   }
   
-
-  
-
-
-
 
 }
