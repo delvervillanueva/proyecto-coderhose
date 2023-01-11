@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { DataModule } from './data/data.module';
+
+
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { ToolbarComponent } from './layout/toolbar/toolbar.component';
 import { MenuIzqComponent } from './layout/menu-izq/menu-izq.component';
-import { AlumnosComponent } from './data/alumnos/alumnos.component';
-import { CrearAlumnosComponent } from './data/crear-alumnos/crear-alumnos.component';
+
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,7 +23,6 @@ import {MatRadioModule} from '@angular/material/radio';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
-import { CursosComponent } from './data/cursos/cursos.component';
 
 import {MatIconModule} from '@angular/material/icon';
 
@@ -29,15 +31,15 @@ import { AppRoutingModule } from '../app/app.routing.module';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ToolbarComponent,
     MenuIzqComponent,
-    AlumnosComponent,
-    CrearAlumnosComponent,
-    CursosComponent
+   
   ],
   imports: [
     BrowserModule,
@@ -53,8 +55,13 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MatSnackBarModule,
     MatToolbarModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
 
+
+  ],
+  exports: [
+    ToolbarComponent,
+    NavbarComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

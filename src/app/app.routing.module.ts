@@ -1,20 +1,17 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { AlumnosComponent } from "./data/alumnos/alumnos.component";
-import { CrearAlumnosComponent } from "./data/crear-alumnos/crear-alumnos.component";
 
 
-
-const routes: Routes = [
-
-     
-    { path: '', redirectTo: 'list-alumnos', pathMatch: 'full' },
-    { path: 'list-alumnos', component: AlumnosComponent },
-    { path: 'crear-alumnos', component: CrearAlumnosComponent },
-    { path: '**', redirectTo: 'list-alumnos', pathMatch: 'full' },
-
-     
-];
+const routes: Routes = 
+    [
+        {
+            path: '',
+            loadChildren: () => import('./data/data.module').then(m => m.DataModule)
+        },
+        {
+            path: '**', redirectTo: 'list-alumnos' 
+        },
+    ];
 
 
 @NgModule({

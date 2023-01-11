@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { ListaAlumnosModel } from '../interfaces/alumnos.model';
+import { ListaCursosModel } from '../interfaces/cursos.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AlumnosService {
+export class CursosService {
 
 
-  listaAlumnos: ListaAlumnosModel[] = [
+  listaCursos: ListaCursosModel[] = [
 
     { nombres: "Juan López", grado: "cuarto", edad: 15, sexo: "Masculino", promedio: 11 },
     { nombres: "Rita Vannesa", grado: "cuarto", edad: 16,sexo: "Femenino", promedio: 9 },
@@ -19,16 +19,16 @@ export class AlumnosService {
     { nombres: "Ivan José", grado: "cuarto", edad: 14,sexo: "Masculino",promedio: 15 },
   ];
   
-  getAlumnos() {
-    return this.listaAlumnos.slice();
+  getCursos() {
+    return this.listaCursos.slice();
   }
 
-  agregarAlumno( nombre : ListaAlumnosModel ) {
-    this.listaAlumnos.unshift( nombre );
+  agregarCurso( nombre : ListaCursosModel ) {
+    this.listaCursos.unshift( nombre );
   }
 
-  eliminarAlumno(index : number) {
-    this.listaAlumnos.splice(index,1);
+  eliminarCurso(index : number) {
+    this.listaCursos.splice(index,1);
   }
 
 }
