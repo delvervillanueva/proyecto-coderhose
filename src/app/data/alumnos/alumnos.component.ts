@@ -23,18 +23,25 @@ export class AlumnosComponent implements OnInit {
   }
 
   cargarAlumnos() {
-    this.listAlumnos = this._alumnosService.getAlumnos();
-    this.dataSource = new MatTableDataSource(this.listAlumnos);
+   this._alumnosService.getAlumnos().subscribe((resp=> {
+      console.log(resp);
+      this.listAlumnos = [...resp];
+      this.dataSource = new MatTableDataSource(this.listAlumnos);
+    }));
   }
 
   addNewItem(res:any) {
     alert(res);
   }
 
-  eliminarAlumno(index: number) {
-    console.log(index);
-
-    this._alumnosService.eliminarAlumno(index);
+  eliminarAlumno(id: any): void {
+   // this._alumnosService.eliminarAlumno(index);
+   if(confirm('Estás de Eliminar a Alumno')) {
+      this._alumnosService.eliminarAlumno(id).subscribe(()=> {
+      const tempArr = this.listAlumnos.filter(alumno => alumno.id !== id);
+      this.listAlumnos = [...tempArr];
+    });
+  }
     this.cargarAlumnos();
 
     this._snackBar.open('El Alumno fue eliminado con éxito', '', {

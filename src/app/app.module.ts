@@ -13,6 +13,9 @@ import { MenuIzqComponent } from './layout/menu-izq/menu-izq.component';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTableModule } from '@angular/material/table'  
@@ -56,12 +59,14 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MatToolbarModule,
     MatSelectModule,
     MatRadioModule,
+    HttpClientModule
 
 
   ],
   exports: [
     ToolbarComponent,
-    NavbarComponent
+    NavbarComponent,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

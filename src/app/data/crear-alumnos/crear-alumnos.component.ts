@@ -81,6 +81,7 @@ export class CrearAlumnosComponent implements OnInit {
 
   guardar() {
     const alumno : ListaAlumnosModel = {
+      id: this.crearAlumno.value.id,
       nombres: this.crearAlumno.value.nombres,
       grado: this.crearAlumno.value.grado,
       edad: this.crearAlumno.value.edad,
