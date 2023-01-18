@@ -3,6 +3,7 @@ import { ListaAlumnosModel } from '../../interfaces/alumnos.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { AlumnosService } from 'src/app/servicios/alumnos.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -16,18 +17,39 @@ export class AlumnosComponent implements OnInit {
   displayedColumns: string[] = ['nombres', 'grado', 'edad', 'sexo', 'promedio', 'acciones'];
   dataSource : MatTableDataSource<any>;
 
-  constructor( private _alumnosService: AlumnosService, private _snackBar : MatSnackBar) { }
+  public alumnos$: Observable<ListaAlumnosModel[]>;
+
+  constructor( private _alumnosService: AlumnosService, private _snackBar : MatSnackBar) {
+    
+
+   }
+
 
   ngOnInit(): void {
+    /* this.alumnos$ = this._alumnosService.listaAlumnos$
+    this.dataSource = new MatTableDataSource(this.alumnos$); */
     this.cargarAlumnos();
+  //  console.log(this.alumnos$, 'oooooooo');
+   
   }
 
   cargarAlumnos() {
-   this._alumnosService.getAlumnos().subscribe((resp=> {
+    this._alumnosService.getAlumnos().subscribe(res => {
+      this.dataSource = new MatTableDataSource(res);
+    })
+    /* this._alumnosService.getAlumnos().subscribe(res => {
+      this.dataSource = new MatTableDataSource(res);
+    }) */
+  /*    this._alumnosService.getAlumnos().subscribe((resp=> {
+      console.log(resp);
+      this.alumnos$ = [...resp];
+      this.dataSource = new MatTableDataSource(this.listAlumnos);
+    })) */
+   /* this._alumnosService.getAlumnos().subscribe((resp=> {
       console.log(resp);
       this.listAlumnos = [...resp];
       this.dataSource = new MatTableDataSource(this.listAlumnos);
-    }));
+    })); */
   }
 
   addNewItem(res:any) {

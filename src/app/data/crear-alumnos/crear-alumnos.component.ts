@@ -79,7 +79,7 @@ export class CrearAlumnosComponent implements OnInit {
   editarAlumno()  {
   }
 
-  guardar() {
+/*   guardar() {
     const alumno : ListaAlumnosModel = {
       id: this.crearAlumno.value.id,
       nombres: this.crearAlumno.value.nombres,
@@ -98,7 +98,7 @@ export class CrearAlumnosComponent implements OnInit {
       verticalPosition: 'bottom'
     });
 
-  }
+  } */
 
 
 }
