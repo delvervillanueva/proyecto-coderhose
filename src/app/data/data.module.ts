@@ -33,11 +33,13 @@ import {MatIconModule} from '@angular/material/icon';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
+
 @NgModule({
   declarations: [
     AlumnosComponent,
     CrearAlumnosComponent,
     CursosComponent,
+
     //AppComponent,
    // NavbarComponent, 
    // ToolbarComponent,
